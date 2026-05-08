@@ -1,0 +1,20 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - WMATA_API_KEY=PUT_YOUR_API_KEY_HERE_OR_BETTER_YET_USE_BUILDKIT
+
+  client:
+    build: .
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_SERVER_API=http://localhost:3000/api/v1/wmata
+    depends_on:
+      - server
+    volumes:
+      - .:/app
+      - /app/node_modules

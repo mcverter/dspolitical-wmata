@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: whitesmoke;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+}
+
+/* Header */
+.app-header {
+  background-color: #4679b0;
+  color: white;
+  padding: 20px 0;
+  margin-bottom: 30px;
+}
+
+.app-header h1 {
+  color: white;
+  font-size: 36px;
+  text-align: center;
+  transform: translateX(-30px);
+  font-weight: 600;
+}
+
+.app-header img {
+  float: left;
+  margin-left: 30px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.form-section {
+  background: white;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+.form-section h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+select {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 2px solid lightgray;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Results Section */
+.results-section {
+  background: #fff;
+  padding: 25px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.results-section h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: darkslategray;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+}
+
+thead {
+  background-color: whitesmoke;
+  font-weight: 600;
+  text-align: center;
+}
+
+th {
+  padding: 10px 10px;
+  font-weight: 600;
+}
+
+td {
+  padding: 12px 15px;
+  border: 1px solid whitesmoke;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+}
