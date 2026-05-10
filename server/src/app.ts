@@ -11,10 +11,17 @@ import { PORT } from "./config";
 
 const app = express();
 const commonRoutePrefix = "/api/v1";
-app.use(cors());
+
+app.use(pinoHttp());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use(limiter);
-app.use(pinoHttp());
 app.use(`${commonRoutePrefix}/wmata`, wmataRoutes);
 app.use(errorHandler);
 app.listen(PORT, () => {
