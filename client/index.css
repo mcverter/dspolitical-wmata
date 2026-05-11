@@ -18,13 +18,12 @@ body {
   color: white;
   font-size: 36px;
   text-align: center;
-  transform: translateX(-30px);
   font-weight: 600;
 }
 
 .app-header img {
-  float: left;
-  margin-left: 30px;
+  position: absolute;
+  left: 30px;
 }
 
 .container {
