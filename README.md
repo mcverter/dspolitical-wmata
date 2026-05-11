@@ -133,7 +133,7 @@ If none of these strategies are sufficient, we will need to negotiate with `WMAT
 
 ## Error handling / Fault Tolerance
 
-Middleware has been added to the centralized service to handle errors. Currently it is only being used send back responses to the client but its usage can be expanded.
+Middleware has been added to the centralized service to handle errors. Currently it is only being used send back responses to the client and to log error messages but its usage can be expanded.
 
 Intermittent errors are always possible so we will want to retry certain types of failed requests (408, 429, 500+) using exponential backoff. This is easy to implement with [axios-retry](https://github.com/softonic/axios-retry).
 
@@ -195,7 +195,7 @@ To test this code we will use standard testing tools to do snapshot testing such
 - MIDDLEWARE: Verify that `rateLimiter` returns correctly configured object
 - MIDDLEWARE: Verify that `errorHandler` returns the correct responses for each type of error.
 
-#### Integration Testing
+#### End to End Testing
 
 Using a Mock API for the `WMATA` server, test the interactions between the client and the server
 
@@ -220,9 +220,9 @@ Using a Mock API for the `WMATA` server, test the interactions between the clien
 
 #### Fault Tolerance / Rate Limiting testing
 
-Ideally we would want to test whether our mitigation efforts for fault tolerance and rate limiting are being successfully executed. Tests (1) and (2) are simple to write. Tests (3) and (4) are much more difficult. Because we are using well-tested `npm` libraries to implement these features, we probably don't need to test them ourselves.
+We are using well-tested npm libraries to handle fault tolerance and rate limiting so all we need to do is verify that they are being invoked in our own code.
 
 1. Verify that these events are being logged.
 2. Verify that telemetry callbacks are being invoked.
-3. Verify that exponential backoff is being correctly used.
-4. Verify that circuit breakers close, half-open, and fully open.
+3. Verify that axios-retry is being used
+4. Verify that the opossum library is being used with our backend.
