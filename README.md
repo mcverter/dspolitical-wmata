@@ -67,7 +67,7 @@ else Client within rate limit
                 Server->>Cache: Store data in Cache
                 Server->>Client: Return data
             else Rate limit hit
-                 Server->>WMATA: Retry requests using exponential backoff
+                 Server->>WMATA: Retry requests using Retry-After header 
                  Server->>Client: Return data when successful
             else 5xx error:
                 WMATA->>Server: Return error
